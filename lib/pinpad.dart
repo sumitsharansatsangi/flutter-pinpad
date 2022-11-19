@@ -9,7 +9,7 @@ class PinPad extends StatefulWidget {
   final int pinLength;
 
   /// decoration for the buttons on the KeyPad.
-  final Decoration buttonDecoration;
+  final ButtonStyle? buttonStyle;
 
   /// styles for the buttons on the KeyPad
   final TextStyle buttonTextStyle;
@@ -44,7 +44,7 @@ class PinPad extends StatefulWidget {
       this.margin = const EdgeInsets.all(5.0),
       this.decoration = const BoxDecoration(),
       this.keyPadDecoration = const BoxDecoration(),
-      this.buttonDecoration = const BoxDecoration(),
+      this.buttonStyle,
       this.buttonTextStyle = const TextStyle(),
       this.title = const Text("Enter PIN")});
 
@@ -119,7 +119,7 @@ class PinPadState extends State<PinPad> {
                   clear,
                   widget.scrambleKeys,
                   widget.keyPadDecoration,
-                  widget.buttonDecoration,
+                  widget.buttonStyle,
                   widget.buttonTextStyle)
             ],
           ),

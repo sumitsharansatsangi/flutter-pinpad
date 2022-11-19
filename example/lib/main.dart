@@ -36,7 +36,8 @@ class MyHomePageState extends State<MyHomePage> {
 
   Future _getPin() async {
     var pin =
-        await PinPadHelper.requestPin(context: context, pinpad: const PinPad());
+        await PinPadHelper.requestPin(context: context,
+            pinpad:  PinPad(buttonStyle: ElevatedButton.styleFrom(shape: const CircleBorder(side: BorderSide(color: Colors.deepPurple)) ) ));
     setState(() {
       _pin = pin ?? "";
     });

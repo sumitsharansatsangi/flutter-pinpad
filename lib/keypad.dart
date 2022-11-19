@@ -5,7 +5,7 @@ class KeyPad extends StatelessWidget {
   final Decoration? decoration;
 
   /// decoration for the buttons on the KeyPad.
-  final Decoration? buttonDecoration;
+  final ButtonStyle? buttonStyle;
 
   /// to scramble the position of input keys.
   final bool scrambleKeys;
@@ -24,7 +24,7 @@ class KeyPad extends StatelessWidget {
   const KeyPad(this.numbers, this.addInput, this.removeInput, this.clear,
       [this.scrambleKeys = true,
       this.decoration,
-      this.buttonDecoration,
+      this.buttonStyle,
       this.buttonTextStyle,
       Key? key])
       : super(key: key);
@@ -48,8 +48,9 @@ class KeyPad extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: inputs
-          .map((value) => IconButton(
-                icon: Text(value.toString(), style: buttonTextStyle),
+          .map((value) => ElevatedButton(
+                style: buttonStyle,
+                child: Text(value.toString(), style: buttonTextStyle),
                 onPressed: () => addInput(value.toString()),
               ))
           .toList(),
